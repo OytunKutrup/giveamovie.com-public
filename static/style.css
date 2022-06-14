@@ -5,6 +5,8 @@ body {
     justify-content: center;
     min-height: 70vh;
     background: #D0E1D4;
+    text-decoration: none;
+
 }
 
 h2 {
@@ -21,6 +23,7 @@ h3{
     text-align: center;
     margin: 20px 500px 0px 500px;
     font-family: Trebuchet MS;
+    min-width: 500px;
 }
 
 h4{
@@ -61,18 +64,23 @@ p {
     gap: 5px;
 }
 
-
 a {
   position: relative;
   top: %80;
   padding: 0px 50px;
   display: block;
-  text-decoration: none;
   text-transform: uppercase;
   width: 250px;
   overflow: hidden;
-
   border-radius: 40px;
+}
+#homepage{
+    color: #638CE3;
+    font-size: 90px;
+    margin: 70px 20px 100px 20px;
+    font-family: Trebuchet MS;
+    text-decoration: none;
+    width: auto;
 }
 
 #button2{
