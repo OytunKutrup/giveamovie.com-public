@@ -9,23 +9,21 @@
 <form action={{action}} method="post">
     <a id="homepage" href="/">Giveamovie</a>
     <input type="text" value="{{input_movie}}" name="movie_input" placeholder="Enter a movie name" class="inputbox">
-    <br>
-    <div class="info">
+    <div class="movie-header">
         <h2> {{name}} {{get_flashed_messages()[0]}}
         </h2>
     </div>
+
     <h3>{{overview}}</h3>
 
-    <div class="info">
+    <div class="movie-header">
         <h4>{{runtime}} {{get_flashed_messages()[1]}}</h4>
         <h4>{{get_flashed_messages()[2]}} {{rating}}</h4>
     </div>
-    <br>
-    <br>
     <div class="inputbutton">
         <a>
             <input class="inputbutton" id="button2" type="submit" value="Get Another Recommendation" id="recommend1">
-            <div class="liquid" id="liq2" ></div>
+            <div class="liquid" id="liq2"></div>
         </a>
     </div>
 
