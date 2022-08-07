@@ -1,6 +1,5 @@
 from neo4j import GraphDatabase
-import logging
-from neo4j.exceptions import ServiceUnavailable
+
 
 class App:
 
@@ -11,6 +10,22 @@ class App:
         # Don't forget to close the driver connection when you are finished with it
         self.driver.close()
 
+    def get_names(self):
+        with self.driver.session() as session:
+            result = session.read_transaction(self.get_movie_names)
+            movie_names = []
+            for movie_info in result:
+                movie_names.append(movie_info[0])
+            return movie_names
+    @staticmethod
+    def get_movie_names(self):
+        query = (
+            """
+            MATCH (m:Movie) RETURN m.title
+                                """
+        )
+        result = self.run(query)
+        return [row for row in result]
 
     def get_recommendation(self, id):
         with self.driver.session() as session:
@@ -43,12 +58,12 @@ class App:
                 # for movie in recommended_movies:
                 #     print(movie.get('title'), movie.get('average_rating'))
             else:
-                print('Similar movie not found.')
+                print('Similar movie not found!')
 
             # for row in result:
-                # print(row.get('overview'))
-                # print(row)
-                # print("Found movie: {row}".format(row=row))
+            # print(row.get('overview'))
+            # print(row)
+            # print("Found movie: {row}".format(row=row))
 
     @staticmethod
     def _recommend_gkdw(self, id):
@@ -68,7 +83,7 @@ class App:
             return neighbors
                                 """
         )
-        result = self.run(query, id= id)
+        result = self.run(query, id=id)
         return [row for row in result]
 
     @staticmethod
@@ -88,9 +103,8 @@ class App:
             return neighbors
                                 """
         )
-        result = tx.run(query, id= id)
+        result = tx.run(query, id=id)
         return [row for row in result]
-
 
     @staticmethod
     def _recommend_gk(tx, id):
@@ -108,7 +122,7 @@ class App:
             return neighbors
                                 """
         )
-        result = tx.run(query, id= id)
+        result = tx.run(query, id=id)
         return [row for row in result]
 
 
@@ -118,5 +132,5 @@ if __name__ == "__main__":
     user = "neo4j"
     password = "MUsjrdnZYM3GNy2sB69z4E7hrK1PgweAxrLLA3vOB88"
     app = App(uri, user, password)
-    app.get_recommendation("The Godfather")
+    # print(app.get_names())
     app.close()

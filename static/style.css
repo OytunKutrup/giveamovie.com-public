@@ -6,21 +6,31 @@ body {
     justify-content: center;
     height: 100vh;
     width: 100%;
+    background-repeat: no-repeat;
     background-size: cover;
     background-attachment: fixed;
     text-decoration: none;
 }
 
+p {
+    font-family: "josefin sans", Arial, sans-serif;
+    font-size: 1.5vw;
+    -webkit-text-fill-color: rgba(255, 255, 255, 0.8);
+    -webkit-text-stroke: 3px transparent;
+    font-weight: bold;
+    text-shadow: 1px 1px 1px #000;
+}
 
 h2 {
     color: #CD51AE;
     font-size: 3vw;
     text-align: center;
     font-family: Trebuchet MS;
+
 }
 
 h3{
-    color: #8A5CC1;
+    color: #b188e2;
     text-align: center;
     font-size: 1.5vw;
     margin-right: 15%;
@@ -29,7 +39,7 @@ h3{
 }
 
 h4{
-    color: #8A5CC1;
+    color: #b188e2;
     text-align: center;
     margin-top: 2%;
     margin-right: 3%;
@@ -41,7 +51,7 @@ h4{
     font-size: 2.3vw;
     width: 500px;
     height: 50px;
-    margin-top: 1.5%;
+    margin-top: 3.5%;
     margin-left: 2%;
     margin-bottom: 2.5%;
     margin-right: 2%;
@@ -107,7 +117,7 @@ a input {
   font-size: 12px;
   font-weight: bold;
   height: 50px;
-  color: #fff;
+  color: #ededed;
   letter-spacing: 3px;
   z-index: 1;
 }
@@ -163,8 +173,20 @@ a:hover .liquid{
   }
 }
 
-.movie-header{
+.movie-header {
     display: flex;
     justify-content: center;
     width: %50;
 }
+.home-movie-header {
+    margin-top: 2.5%;
+}
+
+.ui-menu .ui-menu-item {
+    justify-content: center;
+    display: flex;
+}
+
+.ui-menu .ui-menu-item a {
+    width: auto;
+    max-width: 500px;

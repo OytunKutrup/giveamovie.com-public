@@ -6,6 +6,15 @@
     <!--        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"-->
     <!--              integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">-->
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css')}}">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.js">
+    </script>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.16/jquery-ui.js">
+    </script>
+
+    <link href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.16/themes/ui-lightness/jquery-ui.css"
+          rel="stylesheet" type="text/css"/>
 </head>
 <body>
 
@@ -13,15 +22,35 @@
 <form action="recommendation1" method="post">
 
     <a id="homepage" href="/">Giveamovie</a>
+    <p> Enter a movie name. We'll use artificial intelligence to show recommendations you'll love!</p>
+    <input type="text" id="tags" value="{{input_movie}}" name="movie_input" placeholder="Enter a movie name"
+           class="inputbox">
+    <script>
+    const escapeHtml = (string) => {
+    return string.replaceAll('&amp;', '&').replaceAll('&lt;', '<').replaceAll('&gt;', '>')
+    .replaceAll('&quot;', '"').replaceAll('&#39;', "'");
+        }
+    $( function() {
+        var availableTags = [
+            {% for movie in movie_names %}
+                escapeHtml("{{movie}}"),
+            {% endfor %}
+    ];
+    $( "#tags" ).autocomplete({
+      source: availableTags
+        });
+    } );
 
-    <input type="text" value="{{input_movie}}" name="movie_input" placeholder="Enter a movie name" class="inputbox">
+
+
+    </script>
     <div class="inputbutton">
         <a id="button">
             <input type="submit" value="Get Recommendation" id="recommend">
             <div class="liquid"></div>
         </a>
     </div>
-    <div class="movie-header">
+    <div class="home-movie-header">
         <h2> {{name}}
         </h2>
     </div>

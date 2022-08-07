@@ -4,11 +4,37 @@
     <meta charset="UTF-8">
     <title>Recommendation</title>
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css')}}">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.js">
+    </script>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.16/jquery-ui.js">
+    </script>
+
+    <link href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.16/themes/ui-lightness/jquery-ui.css"
+          rel="stylesheet" type="text/css"/>
 </head>
 <body>
 <form action={{action}} method="post">
     <a id="homepage" href="/">Giveamovie</a>
-    <input type="text" value="{{input_movie}}" name="movie_input" placeholder="Enter a movie name" class="inputbox">
+        <input type="text" id="tags" value="{{input_movie}}" name="movie_input" placeholder="Enter a movie name"
+           class="inputbox">
+    <script>
+    const escapeHtml = (string) => {
+    return string.replaceAll('&amp;', '&').replaceAll('&lt;', '<').replaceAll('&gt;', '>')
+    .replaceAll('&quot;', '"').replaceAll('&#39;', "'");
+        }
+    $( function() {
+        var availableTags = [
+            {% for movie in movie_names %}
+                escapeHtml("{{movie}}"),
+            {% endfor %}
+    ];
+    $( "#tags" ).autocomplete({
+      source: availableTags
+        });
+    } );
+
+    </script>
     <div class="movie-header">
         <h2> {{name}} {{get_flashed_messages()[0]}}
         </h2>
