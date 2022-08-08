@@ -68,7 +68,7 @@ h4{
 
 }
 
-.inputbutton{
+.input-button{
     display: flex;
     justify-content: center;
     gap: 5px;
@@ -87,10 +87,10 @@ a {
 }
 
 #homepage{
-    color: #638CE3;
-    font-size: 90px;
-    margin: 50px 20px 80px 20px;
-    font-family: Trebuchet MS;
+    color: #A8CBF0;
+    font-weight: bold;
+    font-size: 5.6vw;
+    margin: 40px 20px 60px 20px;
     text-decoration: none;
     width: auto;
 
@@ -190,3 +190,18 @@ a:hover .liquid{
 .ui-menu .ui-menu-item a {
     width: auto;
     max-width: 500px;
+}
+
+#footer {
+   position:fixed;
+   left:0px;
+   bottom:0px;
+   height:30px;
+   width:100%;
+   background:#69278D;
+}
+#footer-text {
+    font-size: 14px;
+    position: relative;
+    top: 22%
+}

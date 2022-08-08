@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" charset="UTF-8">
     <title>Recommendation</title>
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css')}}">
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.js">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.js">
     </script>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.16/jquery-ui.js">
@@ -16,7 +16,7 @@
 <body>
 <form action={{action}} method="post">
     <a id="homepage" href="/">Giveamovie</a>
-        <input type="text" id="tags" value="{{input_movie}}" name="movie_input" placeholder="Enter a movie name"
+    <input type="text" id="tags" value="{{input_movie}}" name="movie_input" placeholder="Enter a movie name"
            class="inputbox">
     <script>
     const escapeHtml = (string) => {
@@ -34,6 +34,8 @@
         });
     } );
 
+
+
     </script>
     <div class="movie-header">
         <h2> {{name}} {{get_flashed_messages()[0]}}
@@ -46,16 +48,18 @@
         <h4>{{runtime}} {{get_flashed_messages()[1]}}</h4>
         <h4>{{get_flashed_messages()[2]}} {{rating}}</h4>
     </div>
-    <div class="inputbutton">
+    <div class="input-button">
         <a>
-            <input class="inputbutton" id="button2" type="submit" value="Get Another Recommendation" id="recommend1">
+            <input class="input-button" id="button2" type="submit" value="Get Another Recommendation" id="recommend1">
             <div class="liquid" id="liq2"></div>
         </a>
     </div>
 
-    <!--        {% for message in get_flashed_messages() %}-->
-    <!--        <h2> {{message}} </h2>-->
-    <!--        {% endfor %}-->
+    <footer id="footer" class="main-footer">
+        <p id="footer-text">
+            © 2022 Created by Oytun Kutrup
+        </p>
+    </footer>
 
 
 </form>
