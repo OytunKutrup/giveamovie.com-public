@@ -2,14 +2,19 @@ body {
     text-align: center;
     background: rgb(67,137,162);
     background: linear-gradient(180deg, rgba(67,137,162,1) 0%, rgba(92,37,141,1) 100%);
-    display: flex;
     justify-content: center;
+    display: inline-block;
     height: 100vh;
     width: 100%;
     background-repeat: no-repeat;
     background-size: cover;
     background-attachment: fixed;
     text-decoration: none;
+}
+
+.main-form{
+    height: 89vh;
+    display: inline-block;
 }
 
 p {
@@ -90,7 +95,8 @@ a {
     color: #A8CBF0;
     font-weight: bold;
     font-size: 5.6vw;
-    margin: 40px 20px 60px 20px;
+    margin: 0;
+    padding: 50px 30px 70px 30px;
     text-decoration: none;
     width: auto;
 
@@ -192,16 +198,22 @@ a:hover .liquid{
     max-width: 500px;
 }
 
-#footer {
-   position:fixed;
-   left:0px;
-   bottom:0px;
-   height:30px;
-   width:100%;
-   background:#69278D;
+.footer-div {
+    bottom: 0;
+    width: %100;
+    margin-top: 7vh;
 }
+
+#footer {
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    height: 4vh;
+    background: #69278D;
+
+}
+
 #footer-text {
-    font-size: 14px;
+    font-size: 1.1vw;
     position: relative;
-    top: 22%
 }

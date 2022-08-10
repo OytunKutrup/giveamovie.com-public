@@ -14,6 +14,7 @@ def get_recommendation_data(movie_name):
     neo4j_app.close()
     return recommended_movies
 
+
 def get_movie_names():
     uri = "neo4j+s://4f84511a.databases.neo4j.io"
     user = "neo4j"
@@ -23,23 +24,25 @@ def get_movie_names():
     neo4j_app.close()
     return movie_names
 
+
+movie_names = get_movie_names()
+
+
 @app.route("/home")
 @app.route("/")
 def home():
-    movie_names = get_movie_names()
     return render_template("home.html", movie_names=movie_names)
 
 
 @app.route("/recommendation1", methods=["POST", "GET"])
 def recommendation1():
     if request.method == 'POST':
-        movie_names = get_movie_names()
         input_movie = request.form['movie_input']
         recommended_movies = get_recommendation_data(input_movie)
 
         if recommended_movies is None:
             rec_movie_name = "Movie not found!"
-            return render_template("home.html", name=rec_movie_name)
+            return render_template("home.html", name=rec_movie_name, movie_names=movie_names)
         recommended_movie = recommended_movies[0]
 
         rec_movie_name = recommended_movie.get('title')
@@ -47,25 +50,25 @@ def recommendation1():
         rec_movie_runtime = recommended_movie.get('runtime')
         rec_movie_year = recommended_movie.get('year')
         rec_movie_rating = recommended_movie.get('average_rating')
+        rec_movie_genres = recommended_movie.get('genres')
         action = "recommendation2"
         flash("(" + str(recommended_movie.get('year')) + ")")
         flash("min")
         flash("IMDB")
         return render_template("recommendation.html", input_movie=input_movie, name=rec_movie_name,
                                overview=rec_movie_overview, runtime=rec_movie_runtime, year=rec_movie_year,
-                               rating=rec_movie_rating, action=action,  movie_names=movie_names)
+                               rating=rec_movie_rating, genres=rec_movie_genres, action=action, movie_names=movie_names)
 
 
 @app.route("/recommendation2", methods=["POST", "GET"])
 def recommendation2():
     if request.method == 'POST':
-        movie_names = get_movie_names()
         input_movie = request.form['movie_input']
         recommended_movies = get_recommendation_data(input_movie)
 
         if recommended_movies is None:
             rec_movie_name = "Movie not found."
-            return render_template("home.html", name=rec_movie_name)
+            return render_template("home.html", name=rec_movie_name, movie_names=movie_names)
         recommended_movie = recommended_movies[1]
 
         rec_movie_name = recommended_movie.get('title')
@@ -73,25 +76,25 @@ def recommendation2():
         rec_movie_runtime = recommended_movie.get('runtime')
         rec_movie_year = recommended_movie.get('year')
         rec_movie_rating = recommended_movie.get('average_rating')
+        rec_movie_genres = recommended_movie.get('genres')
         action = "recommendation3"
         flash("(" + str(recommended_movie.get('year')) + ")")
         flash("min")
         flash("IMDB")
         return render_template("recommendation.html", input_movie=input_movie, name=rec_movie_name,
                                overview=rec_movie_overview, runtime=rec_movie_runtime, year=rec_movie_year,
-                               rating=rec_movie_rating, action=action, movie_names=movie_names)
+                               rating=rec_movie_rating, genres=rec_movie_genres, action=action, movie_names=movie_names)
 
 
 @app.route("/recommendation3", methods=["POST", "GET"])
 def recommendation3():
     if request.method == 'POST':
-        movie_names = get_movie_names()
         input_movie = request.form['movie_input']
         recommended_movies = get_recommendation_data(input_movie)
 
         if recommended_movies is None:
             rec_movie_name = "Movie not found."
-            return render_template("home.html", name=rec_movie_name)
+            return render_template("home.html", name=rec_movie_name, movie_names=movie_names)
         recommended_movie = recommended_movies[2]
 
         rec_movie_name = recommended_movie.get('title')
@@ -99,25 +102,25 @@ def recommendation3():
         rec_movie_runtime = recommended_movie.get('runtime')
         rec_movie_year = recommended_movie.get('year')
         rec_movie_rating = recommended_movie.get('average_rating')
+        rec_movie_genres = recommended_movie.get('genres')
         action = "recommendation4"
         flash("(" + str(recommended_movie.get('year')) + ")")
         flash("min")
         flash("IMDB")
         return render_template("recommendation.html", input_movie=input_movie, name=rec_movie_name,
                                overview=rec_movie_overview, runtime=rec_movie_runtime, year=rec_movie_year,
-                               rating=rec_movie_rating, action=action, movie_names=movie_names)
+                               rating=rec_movie_rating, genres=rec_movie_genres, action=action, movie_names=movie_names)
 
 
 @app.route("/recommendation4", methods=["POST", "GET"])
 def recommendation4():
     if request.method == 'POST':
-        movie_names = get_movie_names()
         input_movie = request.form['movie_input']
         recommended_movies = get_recommendation_data(input_movie)
 
         if recommended_movies is None:
             rec_movie_name = "Movie not found."
-            return render_template("home.html", name=rec_movie_name)
+            return render_template("home.html", name=rec_movie_name, movie_names=movie_names)
         recommended_movie = recommended_movies[3]
 
         rec_movie_name = recommended_movie.get('title')
@@ -125,25 +128,25 @@ def recommendation4():
         rec_movie_runtime = recommended_movie.get('runtime')
         rec_movie_year = recommended_movie.get('year')
         rec_movie_rating = recommended_movie.get('average_rating')
+        rec_movie_genres = recommended_movie.get('genres')
         action = "recommendation5"
         flash("(" + str(recommended_movie.get('year')) + ")")
         flash("min")
         flash("IMDB")
         return render_template("recommendation.html", input_movie=input_movie, name=rec_movie_name,
                                overview=rec_movie_overview, runtime=rec_movie_runtime, year=rec_movie_year,
-                               rating=rec_movie_rating, action=action, movie_names=movie_names)
+                               rating=rec_movie_rating, genres=rec_movie_genres, action=action, movie_names=movie_names)
 
 
 @app.route("/recommendation5", methods=["POST", "GET"])
 def recommendation5():
     if request.method == 'POST':
-        movie_names = get_movie_names()
         input_movie = request.form['movie_input']
         recommended_movies = get_recommendation_data(input_movie)
 
         if recommended_movies is None:
             rec_movie_name = "Movie not found."
-            return render_template("home.html", name=rec_movie_name)
+            return render_template("home.html", name=rec_movie_name, movie_names=movie_names)
         recommended_movie = recommended_movies[4]
 
         rec_movie_name = recommended_movie.get('title')
@@ -151,13 +154,14 @@ def recommendation5():
         rec_movie_runtime = recommended_movie.get('runtime')
         rec_movie_year = recommended_movie.get('year')
         rec_movie_rating = recommended_movie.get('average_rating')
+        rec_movie_genres = recommended_movie.get('genres')
         action = "recommendation1"
         flash("(" + str(recommended_movie.get('year')) + ")")
         flash("min")
         flash("IMDB")
         return render_template("recommendation.html", input_movie=input_movie, name=rec_movie_name,
                                overview=rec_movie_overview, runtime=rec_movie_runtime, year=rec_movie_year,
-                               rating=rec_movie_rating, action=action, movie_names=movie_names)
+                               rating=rec_movie_rating, genres=rec_movie_genres, action=action, movie_names=movie_names)
 
 
 if __name__ == "__main__":

@@ -14,7 +14,7 @@
           rel="stylesheet" type="text/css"/>
 </head>
 <body>
-<form action={{action}} method="post">
+<form class="main-form" action={{action}} method="post">
     <a id="homepage" href="/">Giveamovie</a>
     <input type="text" id="tags" value="{{input_movie}}" name="movie_input" placeholder="Enter a movie name"
            class="inputbox">
@@ -36,6 +36,10 @@
 
 
 
+
+
+
+
     </script>
     <div class="movie-header">
         <h2> {{name}} {{get_flashed_messages()[0]}}
@@ -47,6 +51,7 @@
     <div class="movie-header">
         <h4>{{runtime}} {{get_flashed_messages()[1]}}</h4>
         <h4>{{get_flashed_messages()[2]}} {{rating}}</h4>
+        <h4>{{genres}}</h4>
     </div>
     <div class="input-button">
         <a>
@@ -55,13 +60,14 @@
         </a>
     </div>
 
+</form>
+<div class="footer-div">
     <footer id="footer" class="main-footer">
         <p id="footer-text">
             © 2022 Created by Oytun Kutrup
         </p>
     </footer>
+</div>
 
-
-</form>
 </body>
 </html>

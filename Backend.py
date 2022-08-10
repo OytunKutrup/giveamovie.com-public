@@ -17,6 +17,7 @@ class App:
             for movie_info in result:
                 movie_names.append(movie_info[0])
             return movie_names
+
     @staticmethod
     def get_movie_names(self):
         query = (
