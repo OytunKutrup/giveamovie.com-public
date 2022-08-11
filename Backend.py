@@ -52,7 +52,7 @@ class App:
                 recommended_movies = []
                 for movies in recommendation_data:
                     recommended_movies.append(movies[0])
-                    print(movies[0].get('title'), '   Rat', movies[0].get('average_rating'), "   Sim", movies[1])
+                    print(movies[0].get('title'), '   Rat', movies[0].get('average_rating'), "   Sim", movies[1], movies[0].get('imdb_id'))
 
                 return recommended_movies
 

@@ -14,6 +14,7 @@ body {
 
 .main-form{
     height: 89vh;
+    width: 100%;
     display: inline-block;
 }
 
@@ -31,7 +32,7 @@ h2 {
     font-size: 3vw;
     text-align: center;
     font-family: Trebuchet MS;
-
+    margin-bottom: 1.5%;
 }
 
 h3{
@@ -45,6 +46,7 @@ h3{
 
 h4{
     color: #b188e2;
+    font-size: 1.2vw;
     text-align: center;
     margin-top: 2%;
     margin-right: 3%;
@@ -54,8 +56,8 @@ h4{
 
 .inputbox{
     font-size: 2.3vw;
-    width: 500px;
-    height: 50px;
+    width: 40%;
+    height: 6.2%;
     margin-top: 3.5%;
     margin-left: 2%;
     margin-bottom: 2.5%;
@@ -182,6 +184,7 @@ a:hover .liquid{
 .movie-header {
     display: flex;
     justify-content: center;
+    top: %50;
     width: %50;
 }
 .home-movie-header {
@@ -217,3 +220,30 @@ a:hover .liquid{
     font-size: 1.1vw;
     position: relative;
 }
+
+.iframe-container{
+  position: relative;
+  width: 100%;
+  padding-bottom: 30%;
+  margin-top: 2%;
+  height: 0;
+}
+
+.iframe-container iframe{
+  position: absolute;
+  display: inline-block;
+  left: 25%;
+  width: 50%;
+  height: 100%;
+}
+
+.fa-imdb:before {
+    background:linear-gradient(#DBA506,#DBA506) center /94.3% 85% no-repeat;
+    color: black;
+}
+
+.imdb-link{
+    text-align: center;
+    margin-top: 0.5%;
+    margin-left: -3%;
+ }
