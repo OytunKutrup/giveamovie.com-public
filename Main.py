@@ -1,6 +1,7 @@
 from flask import Flask, render_template, request, flash
-from Backend import *
 from youtubesearchpython import VideosSearch
+
+from Backend import *
 
 app = Flask(__name__)
 app.secret_key = "key"
@@ -9,7 +10,7 @@ app.secret_key = "key"
 def get_recommendation_data(movie_name):
     uri = "neo4j+s://4f84511a.databases.neo4j.io"
     user = "neo4j"
-    password = "MUsjrdnZYM3GNy2sB69z4E7hrK1PgweAxrLLA3vOB88"
+    password = "v0P0YX16h_IJCotp42O_G7VWWdAJtcEWmZ4iR-1xWIs"
     neo4j_app = App(uri, user, password)
     recommended_movies = neo4j_app.get_recommendation(movie_name)
     neo4j_app.close()
@@ -19,7 +20,7 @@ def get_recommendation_data(movie_name):
 def get_movie_names():
     uri = "neo4j+s://4f84511a.databases.neo4j.io"
     user = "neo4j"
-    password = "MUsjrdnZYM3GNy2sB69z4E7hrK1PgweAxrLLA3vOB88"
+    password = config.NEO4J_API_KEY
     neo4j_app = App(uri, user, password)
     movie_names = neo4j_app.get_names()
     neo4j_app.close()

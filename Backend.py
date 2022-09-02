@@ -1,3 +1,4 @@
+import config
 from neo4j import GraphDatabase
 
 
@@ -131,7 +132,7 @@ if __name__ == "__main__":
     # Aura queries use an encrypted connection using the "neo4j+s" URI scheme
     uri = "neo4j+s://4f84511a.databases.neo4j.io"
     user = "neo4j"
-    password = "MUsjrdnZYM3GNy2sB69z4E7hrK1PgweAxrLLA3vOB88"
+    password = config.NEO4J_API_KEY
     app = App(uri, user, password)
     # print(app.get_names())
     app.close()
