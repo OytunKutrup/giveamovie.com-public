@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=1000" charset="UTF-8">
+    <title>Giveamovie | {{name}}</title>
+    <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css'>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css')}}">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.js">
+    </script>
+    <script src="https://kit.fontawesome.com/6abfb61b5a.js" crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.16/jquery-ui.js">
+    </script>
+
+    <link href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.16/themes/ui-lightness/jquery-ui.css"
+          rel="stylesheet" type="text/css"/>
+</head>
+<body>
+<form class="main-form" action={{action}} method="post">
+    <a id="homepage" href="/">Giveamovie</a>
+    <input type="text" id="tags" value="{{input_movie}}" name="movie_input" placeholder="Enter a movie name"
+           class="inputbox">
+    <script>
+    const escapeHtml = (string) => {
+    return string.replaceAll('&amp;', '&').replaceAll('&lt;', '<').replaceAll('&gt;', '>')
+    .replaceAll('&quot;', '"').replaceAll('&#39;', "'");
+        }
+    $( function() {
+        var availableTags = [
+            {% for movie in movie_names %}
+                escapeHtml("{{movie}}"),
+            {% endfor %}
+    ];
+    $( "#tags" ).autocomplete({
+      source: availableTags
+        });
+    } );
+    </script>
+
+    <div class="movie-header">
+        <h2> {{name}} {{get_flashed_messages()[0]}}
+        </h2>
+    </div>
+
+    <h3>{{overview}}</h3>
+
+    <div class="movie-header">
+        <h4>{{runtime}} {{get_flashed_messages()[1]}}</h4>
+        <h4>{{get_flashed_messages()[2]}} {{rating}}</h4>
+        <h4>{{genres}}</h4>
+        <a class="imdb-link" href={{imdb_link}} target="_blank"> <i class="fa-brands fa-imdb fa-4x"></i></a>
+    </div>
+
+    <div class="iframe-container">
+        <iframe width="560" height="315" src={{trailer}} title="YouTube video player"
+                frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowfullscreen></iframe>
+    </div>
+
+    <div class="input-button">
+        <a>
+            <input class="input-button" id="button2" type="submit" value="Get Another Recommendation" id="recommend1">
+            <div class="liquid" id="liq2"></div>
+        </a>
+    </div>
+</form>
+
+
+<div class="footer-div">
+    <footer id="footer" class="main-footer">
+        <p id="footer-text">
+            © 2022 Created by Oytun Kutrup
+        </p>
+    </footer>
+</div>
+
+</body>
+</html>

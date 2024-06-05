@@ -1,0 +1,249 @@
+body {
+    text-align: center;
+    background: rgb(67,137,162);
+    background: linear-gradient(180deg, rgba(67,137,162,1) 0%, rgba(92,37,141,1) 100%);
+    justify-content: center;
+    display: inline-block;
+    height: 100vh;
+    width: 100%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    text-decoration: none;
+}
+
+.main-form{
+    height: 89vh;
+    width: 100%;
+    display: inline-block;
+}
+
+p {
+    font-family: "josefin sans", Arial, sans-serif;
+    font-size: 1.5vw;
+    -webkit-text-fill-color: rgba(255, 255, 255, 0.8);
+    -webkit-text-stroke: 3px transparent;
+    font-weight: bold;
+    text-shadow: 1px 1px 1px #000;
+}
+
+h2 {
+    color: #CD51AE;
+    font-size: 3vw;
+    text-align: center;
+    font-family: Trebuchet MS;
+    margin-bottom: 1.5%;
+}
+
+h3{
+    color: #b188e2;
+    text-align: center;
+    font-size: 1.5vw;
+    margin-right: 15%;
+    margin-left: 15%;
+    font-family: Trebuchet MS;
+}
+
+h4{
+    color: #b188e2;
+    font-size: 1.2vw;
+    text-align: center;
+    margin-top: 2%;
+    margin-right: 3%;
+    margin-left: 3%;
+    font-family: Trebuchet MS;
+}
+
+.inputbox{
+    font-size: 2.3vw;
+    width: 40%;
+    height: 6.2%;
+    margin-top: 3.5%;
+    margin-left: 2%;
+    margin-bottom: 2.5%;
+    margin-right: 2%;
+    border: none;
+    border-radius: 10px;
+    text-align: center;
+    font-family: Trebuchet MS;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+
+}
+
+.input-button{
+    display: flex;
+    justify-content: center;
+    gap: 5px;
+}
+
+a {
+  position: relative;
+  top: %80;
+  padding: 0px 50px;
+  display: block;
+  text-transform: uppercase;
+  width: 250px;
+  overflow: hidden;
+  margin-top: 2%;
+  border-radius: 40px;
+}
+
+#homepage{
+    color: #A8CBF0;
+    font-weight: bold;
+    font-size: 5.6vw;
+    margin: 0;
+    padding: 50px 30px 70px 30px;
+    text-decoration: none;
+    width: auto;
+
+}
+
+#button2{
+    letter-spacing: 2px;
+}
+
+#liq2 {
+    background: #367d8e;
+}
+
+a input {
+  font-family: Trebuchet MS;
+  cursor: pointer;
+  position: relative;
+  background: none;
+  border: none;
+  text-decoration: none;
+  text-transform: uppercase;
+  left: -50px;
+  width: 250px;
+  font-size: 12px;
+  font-weight: bold;
+  height: 50px;
+  color: #ededed;
+  letter-spacing: 3px;
+  z-index: 1;
+}
+
+
+a .liquid {
+  position: absolute;
+  top: -90px;
+  left: 0;
+  width: 250px;
+  height: 200px;
+  background: #a4418b;
+  box-shadow: inset 0 0 50px rgba(0, 0, 0, .5);
+  transition: .5s;
+}
+
+a .liquid::after,
+a .liquid::before {
+  content: '';
+  width: 200%;
+  height: 250%;
+  position: absolute;
+  top: -15px;
+  left: 50%;
+  transform: translate(-50%, -75%);
+  background: #000;
+}
+
+a .liquid::before {
+
+  border-radius: 45%;
+  background: rgba(20, 20, 20, 1);
+  animation: animate 5s linear infinite;
+}
+
+a .liquid::after {
+
+  border-radius: 40%;
+  background: rgba(20, 20, 20, .5);
+  animation: animate 10s linear infinite;
+}
+
+a:hover .liquid{
+  top: -130px;
+}
+
+@keyframes animate {
+  0% {
+    transform: translate(-50%, -75%) rotate(0deg);
+  }
+  100% {
+    transform: translate(-50%, -75%) rotate(360deg);
+  }
+}
+
+.movie-header {
+    display: flex;
+    justify-content: center;
+    top: %50;
+    width: %50;
+}
+.home-movie-header {
+    margin-top: 2.5%;
+}
+
+.ui-menu .ui-menu-item {
+    justify-content: center;
+    display: flex;
+}
+
+.ui-menu .ui-menu-item a {
+    width: auto;
+    max-width: 500px;
+}
+
+.footer-div {
+    bottom: 0;
+    width: %100;
+    margin-top: 7vh;
+}
+
+#footer {
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    height: 4vh;
+    background: #69278D;
+
+}
+
+#footer-text {
+    font-size: 1.1vw;
+    position: relative;
+}
+
+.iframe-container{
+  position: relative;
+  width: 100%;
+  padding-bottom: 30%;
+  margin-top: 2%;
+  height: 0;
+}
+
+.iframe-container iframe{
+  position: absolute;
+  display: inline-block;
+  left: 25%;
+  width: 50%;
+  height: 100%;
+}
+
+.fa-imdb:before {
+    background:linear-gradient(#DBA506,#DBA506) center /94.3% 85% no-repeat;
+    color: black;
+}
+
+.imdb-link{
+    text-align: center;
+    margin-top: 0.5%;
+    margin-left: -3%;
+ }
